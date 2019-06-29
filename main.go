@@ -27,9 +27,7 @@ func hash(y *yaml.Node) (string, error) {
 
 type yamldiffer struct {
 	// references to yaml documents
-	a, b, diff []*yaml.Node
-	// index into each node.
-	ia, ib int
+	a, b []*yaml.Node
 }
 
 // Diff emits the list of yaml nodes that are present in the second file but not the first.
