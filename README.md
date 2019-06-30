@@ -1,7 +1,7 @@
 kyd
 -------
 
-kyd diffs two sets of yaml documents.
+kyd (Kubernetes YAML diff) diffs two sets of yaml documents.
 
 Installation:
 
