@@ -12,19 +12,6 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
-func hash(y *yaml.Node) (string, error) {
-	buf := &bytes.Buffer{}
-	enc := yaml.NewEncoder(buf)
-	if err := enc.Encode(y); err != nil {
-		return "", err
-	}
-	if err := enc.Close(); err != nil {
-		return "", err
-	}
-
-	return buf.String(), nil
-}
-
 type yamldiffer struct {
 	// references to yaml documents
 	a, b []*yaml.Node
@@ -52,6 +39,20 @@ func (y *yamldiffer) Diff() ([]*yaml.Node, error) {
 		}
 	}
 	return result, nil
+}
+
+// hash generates a key for a yaml node.
+func hash(y *yaml.Node) (string, error) {
+	buf := &bytes.Buffer{}
+	enc := yaml.NewEncoder(buf)
+	if err := enc.Encode(y); err != nil {
+		return "", err
+	}
+	if err := enc.Close(); err != nil {
+		return "", err
+	}
+
+	return buf.String(), nil
 }
 
 func decode(r io.Reader) ([]*yaml.Node, error) {
