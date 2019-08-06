@@ -1,4 +1,4 @@
-// Command kyd diffs two sets of yaml documents.
+// Command kyd diffs two yaml documents.
 // Only documents that appear in the second file are emitted.
 package main
 
