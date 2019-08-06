@@ -2,6 +2,7 @@
 set -euo pipefail
 # This script helps generate diffs representing changes to helm chart configuration.
 # Useful for applying subsets of Istio chart options.
+# Note: expects to be run from within an Istio checkout.
 
 # Inspiration via https://www.youtube.com/watch?v=FbYBO7Pi2d8
 # wget istio-1.1.7.tar.gz
